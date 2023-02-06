@@ -49,9 +49,7 @@ Compute if the injector is enabled.
 Compute if the server is enabled.
 */}}
 {{- define "vault.serverEnabled" -}}
-{{- $_ := set . "serverEnabled" (or
-  (eq (.Values.server.enabled | toString) "true")
-  (and (eq (.Values.server.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
+{{- $_ := set . "serverEnabled" (or (eq (.Values.server.enabled | toString) "true") (and (eq (.Values.server.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
 {{- end -}}
 
 {{/*
@@ -80,9 +78,7 @@ Compute if the server service is enabled.
 Compute if the ui is enabled.
 */}}
 {{- define "vault.uiEnabled" -}}
-{{- $_ := set . "uiEnabled" (or
-  (eq (.Values.ui.enabled | toString) "true")
-  (and (eq (.Values.ui.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
+{{- $_ := set . "uiEnabled" (or (eq (.Values.ui.enabled | toString) "true") (and (eq (.Values.ui.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
 {{- end -}}
 
 {{/*
