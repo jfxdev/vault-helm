@@ -35,9 +35,7 @@ Expand the name of the chart.
 Compute if the csi driver is enabled.
 */}}
 {{- define "vault.csiEnabled" -}}
-{{- $_ := set . "csiEnabled" (or
-  (eq (.Values.csi.enabled | toString) "true")
-  (and (eq (.Values.csi.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
+{{- $_ := set . "csiEnabled" (or (eq (.Values.csi.enabled | toString) "true") (and (eq (.Values.csi.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
 {{- end -}}
 
 {{/*
