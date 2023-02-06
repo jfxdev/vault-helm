@@ -1,6 +1,4 @@
-{{ if and (.Values.serverTelemetry.prometheusRules.rules)
-     (or (.Values.global.serverTelemetry.prometheusOperator) (.Values.serverTelemetry.prometheusRules.enabled) )
-}}
+{{ if and (.Values.serverTelemetry.prometheusRules.rules) (or (.Values.global.serverTelemetry.prometheusOperator) (.Values.serverTelemetry.prometheusRules.enabled) )}}
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
