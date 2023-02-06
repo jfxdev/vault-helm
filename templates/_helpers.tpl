@@ -42,9 +42,7 @@ Compute if the csi driver is enabled.
 Compute if the injector is enabled.
 */}}
 {{- define "vault.injectorEnabled" -}}
-{{- $_ := set . "injectorEnabled" (or
-  (eq (.Values.injector.enabled | toString) "true")
-  (and (eq (.Values.injector.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
+{{- $_ := set . "injectorEnabled" (or (eq (.Values.injector.enabled | toString) "true") (and (eq (.Values.injector.enabled | toString) "-") (eq (.Values.global.enabled | toString) "true"))) -}}
 {{- end -}}
 
 {{/*
